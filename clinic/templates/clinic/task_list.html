@@ -1,0 +1,64 @@
+{% extends 'clinic/base.html' %}
+{% block content %}
+<br>
+{% if request.user.is_authenticated %}
+<center> <p> Karibu ndugu: {{request.user}}</p> </center>
+{% else %}
+<a href = "{% url 'login' %}">Ingia</a>
+{% endif %}
+
+<hr>
+<h5> <strong> <center> Dalili na Maambukizi </center> </strong> </h5>
+<!-- <center> <a href = "{% url 'task-create' %}">Ingiza Dalili</a> </center> -->
+
+<div class="container">
+  <div class="row mt-4">
+      <div class="col-md-8 offset-md-0">
+          <table class="table" id="printable">
+              <thead>
+                <tr>
+                  <th scope="col">Jina la mtumiaji</th>
+                  <th scope="col">Jina La kwanza</th>
+                  <th scope="col">Jina la pili</th>
+                  <th scope="col">Barua pepe</th>
+                  <th scope="col">Anwani</th>
+                  <th scope="col">Jinsia</th>
+                  <th scope="col">Umri</th>
+                  <th scope="col">Namba ya mgonjwa</th>
+                  <th scope="col">Dalili ya kwanza</th>
+                  <th scope="col">Dalili ya pili</th>
+                  <th scope="col">Dalili ya tatu</th>
+                  <th scope="col">Dalili ya nne</th>
+                  <th scope="col">Dalili ya tano</th>
+                  <th scope="col">Maambukizi</th>  
+                </tr>
+              </thead>
+              <tbody>
+                {% for task in tasks %}
+                <tr>
+                  <td> {{ task.jina_la_mtumiaji }} </td>
+                  <td> {{ task.jina_la_kwanza }} </td>
+                  <td> {{ task.jina_la_pili }} </td>
+                  <td> {{ task.simu }} </td>
+                  <td> {{ task.anwani }} </td>
+                  <td> {{ task.jinsia }} </td>
+                  <td> {{ task.umri }} </td>
+                  <td> {{ task.Namba_ya_mgonjwa }} </td>
+                  <td> {{ task.DALILI1 }} </td>
+                  <td> {{ task.DALILI2 }} </td>
+                  <td> {{ task.DALILI3 }} </td>
+                  <td> {{ task.DALILI4 }} </td>
+                  <td> {{ task.DALILI5 }} </td>
+                  <td> {{ task.MAAMBUKIZI }} </td>
+                  <td> <a href = "{% url 'task-update' task.id %}" class="btn btn-success">Hariri</a></td>
+                  <td> <a href = "{% url 'task-delete' task.id %}" class="btn btn-danger">Futa</a></td>
+                </tr>
+              </tbody>
+                {% empty %}
+  <p>Hakuna dalili zilizoingizwa!!!</p> 
+  {% endfor %}
+            </table>
+      </div>  
+  </div>
+</div>    
+{% endblock %}
