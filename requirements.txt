@@ -53,6 +53,7 @@ google-auth-oauthlib==1.1.0
 google-pasta==0.2.0
 gpg==1.16.0
 grpcio==1.49.1
+gunicorn==21.2.0
 h5py==3.7.0
 httplib2==0.20.2
 idna==3.3
