@@ -13,7 +13,6 @@ chardet==4.0.0
 click==8.0.3
 colorama==0.4.4
 comm==0.2.1
-command-not-found==0.3
 contextlib2==21.6.0
 contourpy==1.0.6
 crispy-bootstrap4==2023.1
