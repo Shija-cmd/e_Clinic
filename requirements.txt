@@ -23,7 +23,6 @@ dbus-python==1.2.18
 decorator==5.1.1
 distlib==0.3.6
 distro==1.7.0
-distro-info==1.1+ubuntu0.2
 Django==5.0.1
 django-autocomplete-light==3.9.7
 django-class-auth-views==1.0.2
