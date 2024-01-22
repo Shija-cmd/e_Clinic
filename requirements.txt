@@ -74,7 +74,6 @@ MarkupSafe==2.1.1
 matplotlib==3.5.2
 matplotlib-inline==0.1.6
 mistune==0.8.4
-mkl-service==2.4.0
 multidict==5.2.0
 munkres==1.1.4
 natsort==8.2.0
