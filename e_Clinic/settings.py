@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import catalogue
 from whitenoise import WhiteNoise
 
 
@@ -27,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$=o4vq&=znbz#j)3$csijqse201*d9=6pn&st6qs*xbpp3%0nl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

@@ -58,15 +58,13 @@ class Task(models.Model):
     complete = models.BooleanField(default=False, editable = False)
     created = models.DateTimeField(auto_now_add=True)
     
-    readonly_fields = ('Patient_Id', 'MAAMBUKIZI')
-    
     def save(self, *args, **kwargs):
         ml_model = joblib.load('ml_model/model.joblib')
         self.MAAMBUKIZI = ml_model.predict([[self.DALILI1, self.DALILI2, self.DALILI3, self.DALILI4, self.DALILI5]])
         return super().save(*args, *kwargs)
     
     def __str__(self):
-        return self.firstname
+        return self.jina_la_kwanza
     
     class Meta:
         ordering = ['complete']

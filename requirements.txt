@@ -140,7 +140,7 @@ setuptools==68.0.0
 sh==1.14.3
 SimpleITK==2.2.0
 sip==6.6.2
-six==1.16.0
+six==1.0.5
 sklearn==0.0
 somepackage==1.2.3
 soupsieve==2.3.1
