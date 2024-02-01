@@ -40,7 +40,7 @@ SYMP_5 = [
 def generate_random_code():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=9)) 
 
-class Task(models.Model):
+class Patient(models.Model):
     jina_la_mtumiaji = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank=True)
     jina_la_kwanza = models.CharField(max_length=200)
     jina_la_pili = models.CharField(max_length=200)
