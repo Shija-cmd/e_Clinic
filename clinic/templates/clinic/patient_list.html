@@ -10,9 +10,6 @@
 <hr>
 <h5> <strong> <center> Dalili na Maambukizi </center> </strong> </h5>
 
-<div class="container">
-  <div class="row mt-4">
-      <div class="col-md-8 offset-md-0">
           <table class="table" id="printable">
               <thead>
                 <tr>
@@ -29,7 +26,10 @@
                   <th scope="col">Dalili ya tatu</th>
                   <th scope="col">Dalili ya nne</th>
                   <th scope="col">Dalili ya tano</th>
-                  <th scope="col">Maambukizi</th>  
+                  <th scope="col">Hospitali</th>
+                  <th scope="col">Maambukizi</th>
+                  <th scope="col"></th> 
+                  <th scope="col"></th>   
                 </tr>
               </thead>
               <tbody>
@@ -48,6 +48,7 @@
                   <td> {{ task.DALILI3 }} </td>
                   <td> {{ task.DALILI4 }} </td>
                   <td> {{ task.DALILI5 }} </td>
+                  <td> {{ task.hospitali }} </td>
                   <td> {{ task.MAAMBUKIZI }} </td>
                   <td> <a href = "{% url 'task-update' task.id %}" class="btn btn-success">Hariri</a></td>
                   <td> <a href = "{% url 'task-delete' task.id %}" class="btn btn-danger">Futa</a></td>
@@ -59,5 +60,7 @@
             </table>
       </div>  
   </div>
-</div>    
+</div>
+                  <br> <hr>
+<h4><center><div class="badge bg-info text-light text-wrap" style="width: 60rem;"> Endapo ubashiri utakuwa "Kuna maambukizi" nakili namba ya mgonjwa na uende maabara kwa vipimo zaidi. <br> Asante kwa kutumia mfumo wetu na karibu tena!!!</div></center></h4>    
 {% endblock %}

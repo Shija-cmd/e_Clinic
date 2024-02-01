@@ -62,4 +62,5 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
 class DeleteView(LoginRequiredMixin, DeleteView):
     model = Patient
     context_object_name = 'task'
-    success_url = reverse_lazy('tasks')      
+    success_url = reverse_lazy('tasks')
+        

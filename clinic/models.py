@@ -11,9 +11,19 @@ import string
 
 
 # Create your models here.
+hosp = [
+    ('Tengeru', 'Tengeru'),
+    ('Selian', 'Selian'),
+    ('NSK', 'NSK'),
+    ('St. Elizabeth', 'St. Elizabeth'),
+    ('AICC', 'AICC'),
+    ('Mount Meru', 'Mount Meru'),
+    ('St. Joseph', 'St. Joseph'),
+]
+
 SEX = [
-    (1, 'Me'),
-    (0, 'Ke'),
+    ('Me', 'Me'),
+    ('Ke', 'Ke'),
 ]
 
 SYMP_1 = [
@@ -46,7 +56,7 @@ class Patient(models.Model):
     jina_la_pili = models.CharField(max_length=200)
     simu = models.CharField(max_length=200)
     anwani = models.TextField(null=True, blank=True)
-    jinsia = models.PositiveIntegerField(choices=SEX)
+    jinsia = models.CharField(choices=SEX)
     umri = models.PositiveIntegerField(null=True, blank=True)
     Namba_ya_mgonjwa = models.CharField(max_length=9, default=generate_random_code, db_index=True, editable = False)
     DALILI1 = models.PositiveIntegerField(choices=SYMP_1)
@@ -54,6 +64,7 @@ class Patient(models.Model):
     DALILI3 = models.PositiveIntegerField(choices=SYMP_3)
     DALILI4 = models.PositiveIntegerField(choices=SYMP_4)
     DALILI5 = models.PositiveIntegerField(choices=SYMP_5)
+    hospitali = models.CharField(choices=hosp, default = 'Tengeru')
     MAAMBUKIZI = models.CharField(max_length=100, blank=True, editable = False)
     complete = models.BooleanField(default=False, editable = False)
     created = models.DateTimeField(auto_now_add=True)
@@ -68,14 +79,6 @@ class Patient(models.Model):
     
     class Meta:
         ordering = ['complete']
-        
-             
-hosp = [
-    (1, 'Tengeru'),
-    (2, 'Selian'),
-    (3, 'NSK'),
-    (4, 'St. Elizabeth'),
-    (5, 'AICC'),
-    (6, 'Mount Meru'),
-    (7, 'St. Joseph'),
-]
+
+
+    
