@@ -49,7 +49,7 @@ SYMP_5 = [
 
 def generate_random_code():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=9)) 
-
+#Table Patient
 class Patient(models.Model):
     jina_la_mtumiaji = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank=True)
     jina_la_kwanza = models.CharField(max_length=200)
@@ -68,7 +68,7 @@ class Patient(models.Model):
     MAAMBUKIZI = models.CharField(max_length=100, blank=True, editable = False)
     complete = models.BooleanField(default=False, editable = False)
     created = models.DateTimeField(auto_now_add=True)
-    
+    #Function to load the model
     def save(self, *args, **kwargs):
         ml_model = joblib.load('ml_model/model.joblib')
         self.MAAMBUKIZI = ml_model.predict([[self.DALILI1, self.DALILI2, self.DALILI3, self.DALILI4, self.DALILI5]])

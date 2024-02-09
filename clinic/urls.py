@@ -4,7 +4,7 @@ from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, DeleteView, Cus
 from class_based_auth_views.views import LogoutView
 
 
-
+#Path to the urls
 urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
     path('register/', RegisterPage.as_view(), name='register'),
