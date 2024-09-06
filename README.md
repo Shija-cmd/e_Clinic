@@ -14,5 +14,5 @@
 ### predict if there is a possibility of having some infections. See the attachment bellow
 ![symptoms](https://github.com/user-attachments/assets/c67d4fae-3f93-429c-af1b-69b5572e51ef)
 ### The column named "Maambukizi" means infections, shows the prediction either possibility of having infections or have no 
-### infections
+infections
 
