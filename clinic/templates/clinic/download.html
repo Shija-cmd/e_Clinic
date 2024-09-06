@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download Data</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'assets/js/bg.js' %}">
+</head>
+
+<body>
+     
+    {% if user.is_authenticated and user.is_staff %}
+ <center>   
+    <h1 class="p-3 mb-2 bg-secondary text-white"> Ukurasa wa Daktari </h1>
+ </p>
+
+    <!-- <button type="button" class="btn btn-primary btn-lg" id="download-pdf">Download PDF</button> -->
+    <button type="button" class="btn btn-primary btn-lg" id="download-excel">Pakua orodha ya wagonjwa</button>
+    <a href = "{% url "tasks" %}" class="btn btn-primary btn-lg"> Rudi nyuma </a>
+
+    <script>
+        $(document).ready(function(){
+            $('#download-pdf').click(function(){
+                window.location.href = '/download/pdf/';
+            });
+
+            $('#download-excel').click(function(){
+                window.location.href = '/download/excel/';
+            });
+        });
+    </script>
+    <br>
+    <div> <img src="{% static 'images/images.jpeg' %}">
+    </div>
+ </center>
+ {% else %}
+    <div class = "container">
+        
+<div class="p-3 mb-2 bg-danger text-white">
+
+    <center> <h3> Ooops! samahani hauruhusiwi kuona ukurasa wa Daktari
+    </div>
+    </center> 
+    <br> <center> <a href = "{% url "tasks" %}" class = "btn btn-success"> Tafadhali rudi nyuma </a> </center>
+ {% endif %}
+       </div>

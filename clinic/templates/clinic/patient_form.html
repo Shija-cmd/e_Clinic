@@ -12,9 +12,9 @@
     <title>{% block title %}Home{% endblock %}</title>
   </head>
 {% load crispy_forms_tags %}
-<center> <h3> Dalili za mgonjwa </center> </h3>
+<center> <h3 class="p-3 mb-2 bg-secondary text-white"> Dalili za mgonjwa </center> </h3>
 <center> <a href = {% url 'tasks'%} class="btn btn-success">Rudi nyuma</a> </center>
-<p> <center> Karibu {{request.user}}, Ingiza taarifa zako na dalili unazohisi, kisha hospitali iliyopo karibu na wewe </center><p>
+<p> <center> <strong> Karibu {{request.user}}, Ingiza taarifa zako na dalili unazohisi, kisha hospitali iliyopo karibu na wewe </strong> </center><p>
  
  
 <form method = "POST" action = "">

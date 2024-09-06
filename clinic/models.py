@@ -10,6 +10,7 @@ import string
 
 
 
+
 # Create your models here.
 hosp = [
     ('Tengeru', 'Tengeru'),
@@ -52,6 +53,7 @@ def generate_random_code():
 #Table Patient
 class Patient(models.Model):
     jina_la_mtumiaji = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank=True)
+    tarehe = models.DateField(null=True, blank=True, auto_now_add = True)
     jina_la_kwanza = models.CharField(max_length=200)
     jina_la_pili = models.CharField(max_length=200)
     simu = models.CharField(max_length=200)
@@ -77,8 +79,18 @@ class Patient(models.Model):
     def __str__(self):
         return self.jina_la_kwanza
     
-    class Meta:
-        ordering = ['complete']
+class Doctor(models.Model):
+    jina_la_kwanza = models.CharField(blank = True, null = True)
+    jina_la_pili = models.CharField(blank = True, null = True)
+    umri = models.PositiveIntegerField(blank = True, null = True)
+    anwani = models.TextField(blank = True, null = True)
+    Uchunguzi = models.TextField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.jina_la_kwanza
+        
+class Meta:
+    ordering = ['complete']
 
 
     

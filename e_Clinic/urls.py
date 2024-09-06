@@ -21,3 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('clinic.urls')),
 ]
+#Editing the admin site title
+admin.site.site_header = "STDs e_Clinic Admin Panel"
+admin.site.site_title = "STDs e_Clinic Admin Portal"
+admin.site.index_title = "Welcome to STDs e_Clinic Portal"
+

@@ -15,7 +15,6 @@
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
 				<div class="card-body p-5">
-	<br>
 	<center>
 	<h1 class="fs-4 card-title fw-bold mb-4">MFUMO WA KLINIKI YA KIELEKTRONIKI YA MAGONJWA YA ZINAA</h1>
 	</center>
@@ -38,20 +37,55 @@
     {{form | crispy}}
     <center><input type = "submit" value = "Jiandikishe" class="btn btn-success"></center>
 </form>
+<br>
 <div class="card-footer py-3 border-0">
 							<div class="text-center">
 								Una akaunti? <a href="{% url 'login' %}" class="btn btn-success">Ingia</a>
 							</div>
 						</div>
-<div class="text-center mt-5 text-muted">
-						Hakimiliki &copy; 2024 &mdash; Shija
-						<br>
-						Motto: "Zero STDs' Stigmatisation" 
-					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
+<!-- testing-->
+		<!-- css-->
+		<style>
+			footer {
+				display: flex;
+				justify-content: space-around;
+				background-color: #D3D3D3;
+				color: #000000;
+				padding: 0px;
+			}
+	
+			.column {
+				width: 25%;
+			}
+		</style>
+		<!-- css end -->
+		<footer>
+			<div class="column">
+				<ul>
+				<a href = "https://github.com/Shija-cmd">github</a><br>
+				<a href = "https://www.linkedin.com/in/juma-shija-20a3945a/">linkedin</a>	
+				</ul>
+			</div>
+	
+			<div class="column">
+				
+				<ul>
+					&copy Hakimiliki: 2024 &mdash; Shija <br>
+					Motto: "Zero STDs' Stigmatisation"
+				</ul>
+			</div>
+	
+			<div class="column">
+				
+				<ul>
+					<a href=" https://orcid.org/0000-0003-0480-6637">About us</a>
+				</ul>
+			</div>
+		</footer>
+		<!-- end testing-->
 </body>
 </html>

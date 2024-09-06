@@ -1,0 +1,1 @@
+cd /d "C:\Users\Shija\Desktop\e_Clinic" python manage.py runserver 0.0.0.0:8000

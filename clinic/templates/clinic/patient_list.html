@@ -1,19 +1,22 @@
 {% extends 'clinic/base.html' %}
 {% block content %}
+{% load static %}
 <br>
+<!-- 
 {% if request.user.is_authenticated %}
 <center> <p> Karibu ndugu: {{request.user}}</p> </center>
 {% else %}
 <a href = "{% url 'login' %}">Ingia</a>
-{% endif %}
+{% endif %}  
 
-<hr>
+<hr>  -->
 <h5> <strong> <center> Dalili na Maambukizi </center> </strong> </h5>
 
           <table class="table" id="printable">
               <thead>
                 <tr>
                   <th scope="col">Jina la mtumiaji</th>
+                  <th scope="col">Tarehe</th>
                   <th scope="col">Jina La kwanza</th>
                   <th scope="col">Jina la pili</th>
                   <th scope="col">Namba ya simu</th>
@@ -36,6 +39,7 @@
                 {% for task in tasks %}
                 <tr>
                   <td> {{ task.jina_la_mtumiaji }} </td>
+                  <td> {{ task.tarehe }} </td>
                   <td> {{ task.jina_la_kwanza }} </td>
                   <td> {{ task.jina_la_pili }} </td>
                   <td> {{ task.simu }} </td>
@@ -62,5 +66,7 @@
   </div>
 </div>
                   <br> <hr>
-<h4><center><div class="badge bg-info text-light text-wrap" style="width: 60rem;"> Endapo ubashiri utakuwa "Kuna maambukizi" nakili namba ya mgonjwa na uende maabara kwa vipimo zaidi. <br> Asante kwa kutumia mfumo wetu na karibu tena!!!</div></center></h4>    
+<h4><center><div class="badge bg-info text-light text-wrap" style="width: 60rem;"> Endapo ubashiri utakuwa "Kuna maambukizi" nakili namba ya mgonjwa na uende maabara kwa vipimo zaidi. <br> Asante kwa kutumia mfumo wetu na karibu tena!!!</div></center></h4>
+<br>
+<center><img src="{% static 'images/images.jpeg' %}"> </center>    
 {% endblock %}

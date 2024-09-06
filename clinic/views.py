@@ -4,10 +4,19 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
 from .models import Patient
+#from .models import Doctor
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+import pandas as pd
+from io import BytesIO
+#from django import forms
+
+
 
 class CustomLoginView(LoginView):
     template_name = 'clinic/login.html'
@@ -63,4 +72,44 @@ class DeleteView(LoginRequiredMixin, DeleteView):
     model = Patient
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
-        
+    
+    
+# functions for downloading files
+# for pdf files
+def download_pdf(request):
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="data.pdf"'
+
+    buffer = BytesIO()
+    p = canvas.Canvas(buffer, pagesize=letter)
+    p.drawString(100, 750, "GPA STATUS DATA")
+
+    data_entries = Patient.objects.all().order_by('NAME')
+    y = 700
+    for entry in data_entries:
+        p.drawString(100, y, f"Name: {entry.NAME}, UGPA: {entry.UGPA}, Research Concept Note: {entry.RCN}, English Test: {entry.TOEFL}, Letter of Recommendation: {entry.LOR}, ACSEE: {entry.HIGH_SCHOOL_POINTS}, Eligibility: {entry.STATUS}")
+        y -= 20
+
+    p.showPage()
+    p.save()
+
+    buffer.seek(0)
+    response.write(buffer.read())
+    return response 
+   
+ # Downloads for excel files
+def download_excel(request):
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=Patient.xlsx'
+
+    data_entries = Patient.objects.all().values('tarehe', 'jina_la_kwanza', 'jina_la_pili', 'simu', 'anwani', 'jinsia', 'umri', 'Namba_ya_mgonjwa', 'DALILI1', 'DALILI2', 'DALILI3', 'DALILI4', 'DALILI5', 'hospitali', 'MAAMBUKIZI')
+    df = pd.DataFrame(data_entries)
+
+    with pd.ExcelWriter(response, engine='openpyxl') as writer:
+        df.to_excel(writer, index=False, sheet_name='Data')
+
+    return response
+
+# view to render the file
+def download_page(request):
+    return render(request, 'clinic/download.html')

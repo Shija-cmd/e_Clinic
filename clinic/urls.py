@@ -2,6 +2,8 @@
 from django.urls import path
 from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, DeleteView, CustomLoginView, RegisterPage
 from class_based_auth_views.views import LogoutView
+from .views import download_pdf, download_excel
+from .views import download_page
 
 
 #Path to the urls
@@ -14,5 +16,8 @@ urlpatterns = [
     path('task-create/', TaskCreate.as_view(), name='task-create'),
     path('task-update/<int:pk>', TaskUpdate.as_view(), name='task-update'),
     path('task-delete/<int:pk>', DeleteView.as_view(), name='task-delete'),
+    path('download/pdf/', download_pdf, name='download-pdf'),
+    path('download/excel/', download_excel, name='download-excel'),
+    path('download/', download_page, name='download'),
    
 ]

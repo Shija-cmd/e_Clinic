@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from django.core.management.commands.runserver import Command as runserver
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,11 +30,15 @@ SECRET_KEY = 'django-insecure-$=o4vq&=znbz#j)3$csijqse201*d9=6pn&st6qs*xbpp3%0nl
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+runserver.default_port = '8000'
+runserver.default_addr = '127.0.0.1'
 
 
 # Application definition
 
 INSTALLED_APPS = [
+     'imagefit',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +50,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'crispy_bootstrap4',
     'catalogue',
+    'import_export',
 ]
 
 MIDDLEWARE = [
