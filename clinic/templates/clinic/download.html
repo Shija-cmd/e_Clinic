@@ -9,19 +9,104 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="{% static 'assets/js/bg.js' %}">
+<link rel="stylesheet" href="{% static 'assets/css/sidebar.css' %}">
+<!-- this for side bar -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+</head>
+<!-- End for sidebar -->
 </head>
 
 <body>
      
     {% if user.is_authenticated and user.is_staff %}
  <center>   
-    <h1 class="p-3 mb-2 bg-secondary text-white"> Ukurasa wa Daktari </h1>
+    <h1 class="p-3 mb-2 bg-secondary text-white"> Maabara </h1>
  </p>
 
     <!-- <button type="button" class="btn btn-primary btn-lg" id="download-pdf">Download PDF</button> -->
-    <button type="button" class="btn btn-primary btn-lg" id="download-excel">Pakua orodha ya wagonjwa</button>
-    <a href = "{% url "tasks" %}" class="btn btn-primary btn-lg"> Rudi nyuma </a>
+   <!-- <button type="button" class="btn btn-primary btn-lg" id="download-excel">Pakua orodha ya wagonjwa</button> -->
+    <!-- <a href = "{% url "tasks" %}" class="btn btn-primary btn-lg"> Rudi nyuma </a> -->
+<!-- Test again sidebar -->
 
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+               <strong> <div class="sidebar-heading border-bottom bg-light">Menu</div> </strong>
+                <div class="list-group list-group-flush">
+                    <a style="cursor:pointer;" class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" id="download-excel">Wagonjwa</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="#!">Uchunguzi</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="#!">Magonjwa</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="#!">Elimu Rika</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="{% url "tasks" %}">Nyuma</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="{% url 'logout' %}"">Ondoka</a>
+                    
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#!">Action</a>
+                                        <a class="dropdown-item" href="#!">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#!">Something else here</a>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                -->
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h3 class="mt-4">Magonjwa ya Ngono</h3>
+                    
+                    <p align="justify">
+                        Magonjwa ya Zinaa, kama jina linavyoashiria, ni magonjwa ambayo huambukizwa kwa kiasi 
+                        kikubwa kupitia ngono isiyo salama na mwenza aliyeambukizwa. Zaidi ya maambukizi 
+                        milioni moja ya magonjwa ya zinaa hupatikana kila siku duniani kote. Makundi yaliyo 
+                        katika hatari zaidi nchini Tanzania ni wafanyakazi wa biashara ya ngono, madereva wa 
+                        malori wanaosafiri umbali mrefu, na wafanyakazi wa baa na hoteli. Magonjwa ya zinaa 
+                        yanayoenea zaidi nchini Tanzania ni Kisonono, Kaswende, Klamidia, na Trikomonasi. 
+                        Magonjwa ya Zinaa yana athari kadhaa endapo hayatatibiwa kwa wakati, au hata 
+                        yakitibiwa kwa dawa zisizo sahihi. Yanaweza kusababisha utasa au hali ya kutopata 
+                        watoto, na pia yanaweza kuacha mwili ukiwa dhaifu dhidi ya magonjwa hatari zaidi kama 
+                        vile Virusi vya UKIMWI (HIV), na hatimaye yanaweza kusababisha kifo. Unyanyapaa na 
+                        aibu inayohusishwa na magonjwa ya zinaa ni vikwazo vikubwa kwa huduma za uchunguzi na 
+                        matibabu sahihi. Kutokana na utafiti huu, mfano wa ujifunzaji wa mashine 
+                        (machine learning) uliundwa, na mfano huo uliunganishwa na programu ya wavuti ili 
+                        kuwezesha mawasiliano rahisi kati ya wagonjwa na kituo cha afya, na hivyo kuondoa 
+                        vikwazo vya mawasiliano kati ya kliniki za afya ya ngono na wagonjwa wa magonjwa ya 
+                        zinaa.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+   
+
+
+<!-- End of side bar -->
     <script>
         $(document).ready(function(){
             $('#download-pdf').click(function(){
@@ -33,10 +118,7 @@
             });
         });
     </script>
-    <br>
-    <div> <img src="{% static 'images/images.jpeg' %}">
-    </div>
- </center>
+    
  {% else %}
     <div class = "container">
         

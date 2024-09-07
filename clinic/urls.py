@@ -6,6 +6,7 @@ from .views import download_pdf, download_excel
 from .views import download_page
 
 
+
 #Path to the urls
 urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
@@ -19,5 +20,5 @@ urlpatterns = [
     path('download/pdf/', download_pdf, name='download-pdf'),
     path('download/excel/', download_excel, name='download-excel'),
     path('download/', download_page, name='download'),
-   
+    
 ]

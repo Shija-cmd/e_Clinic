@@ -4,7 +4,6 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
 from .models import Patient
-#from .models import Doctor
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView 
@@ -14,7 +13,6 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import pandas as pd
 from io import BytesIO
-#from django import forms
 
 
 
@@ -113,3 +111,5 @@ def download_excel(request):
 # view to render the file
 def download_page(request):
     return render(request, 'clinic/download.html')
+
+# Lab forms    

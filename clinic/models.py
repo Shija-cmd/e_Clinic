@@ -6,20 +6,16 @@ from django import forms
 from django.contrib import admin
 import random
 import string
-
-
-
-
-
+ 
 # Create your models here.
 hosp = [
     ('Tengeru', 'Tengeru'),
-    ('Selian', 'Selian'),
-    ('NSK', 'NSK'),
-    ('St. Elizabeth', 'St. Elizabeth'),
-    ('AICC', 'AICC'),
-    ('Mount Meru', 'Mount Meru'),
-    ('St. Joseph', 'St. Joseph'),
+    ('Nambala', 'Nambala'),
+    ('Kikwe', 'Kikwe'),
+    ('Moshi', 'Moshi'),
+    ('Arusha', 'Arusha'),
+    ('Usa River', 'Usa River'),
+    ('Kikatiti', 'Kikatiti'),
 ]
 
 SEX = [
@@ -51,6 +47,7 @@ SYMP_5 = [
 def generate_random_code():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=9)) 
 #Table Patient
+readonly_fields = ('Namba_ya_mgonjwa')
 class Patient(models.Model):
     jina_la_mtumiaji = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank=True)
     tarehe = models.DateField(null=True, blank=True, auto_now_add = True)
@@ -70,6 +67,7 @@ class Patient(models.Model):
     MAAMBUKIZI = models.CharField(max_length=100, blank=True, editable = False)
     complete = models.BooleanField(default=False, editable = False)
     created = models.DateTimeField(auto_now_add=True)
+    
     #Function to load the model
     def save(self, *args, **kwargs):
         ml_model = joblib.load('ml_model/model.joblib')
@@ -77,20 +75,6 @@ class Patient(models.Model):
         return super().save(*args, *kwargs)
     
     def __str__(self):
-        return self.jina_la_kwanza
-    
-class Doctor(models.Model):
-    jina_la_kwanza = models.CharField(blank = True, null = True)
-    jina_la_pili = models.CharField(blank = True, null = True)
-    umri = models.PositiveIntegerField(blank = True, null = True)
-    anwani = models.TextField(blank = True, null = True)
-    Uchunguzi = models.TextField(null=True, blank=True)
-    
-    def __str__(self):
-        return self.jina_la_kwanza
-        
+        return self.jina_la_kwanza        
 class Meta:
-    ordering = ['complete']
-
-
-    
+    ordering = ['complete'] 
