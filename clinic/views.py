@@ -112,4 +112,4 @@ def download_excel(request):
 def download_page(request):
     return render(request, 'clinic/download.html')
 
-# Lab forms    
+# Lab forms 

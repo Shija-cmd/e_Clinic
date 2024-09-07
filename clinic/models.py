@@ -75,6 +75,7 @@ class Patient(models.Model):
         return super().save(*args, *kwargs)
     
     def __str__(self):
-        return self.jina_la_kwanza        
+        return self.jina_la_kwanza
+                
 class Meta:
     ordering = ['complete'] 
