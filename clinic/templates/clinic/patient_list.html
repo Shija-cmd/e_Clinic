@@ -11,6 +11,21 @@
 
 <hr>  -->
 <h5> <strong> <center> Dalili na Maambukizi </center> </strong> </h5>
+<!-- Side bar starts here
+-->  
+<div class="d-flex" id="wrapper">
+  <div class="border-end bg-white" id="sidebar-wrapper">
+     <strong><div class="sidebar-heading border-bottom bg-light">Menu</div> </strong>
+      <div class="list-group list-group-flush">
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="#!">Magonjwa ya Ngono</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="#!">Elimu Rika</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="#!">Miadi na Daktari</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="{% url 'logout' %}"">Ondoka</a>
+          
+      </div>
+  </div>
+  <!--Side bar ends here
+  -->
 
           <table class="table" id="printable">
               <thead>
@@ -68,5 +83,4 @@
                   <br> <hr>
 <h4><center><div class="badge bg-info text-light text-wrap" style="width: 60rem;"> Endapo ubashiri utakuwa "Kuna maambukizi" nakili namba ya mgonjwa na uende maabara kwa vipimo zaidi. <br> Asante kwa kutumia mfumo wetu na karibu tena!!!</div></center></h4>
 <br>
-<!-- <center><img src="{% static 'assets/images/home.jpg' %}"> </center>  -->  
 {% endblock %}
