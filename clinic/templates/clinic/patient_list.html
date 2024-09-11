@@ -2,20 +2,12 @@
 {% block content %}
 {% load static %}
 <br>
-<!-- 
-{% if request.user.is_authenticated %}
-<center> <p> Karibu ndugu: {{request.user}}</p> </center>
-{% else %}
-<a href = "{% url 'login' %}">Ingia</a>
-{% endif %}  
-
-<hr>  -->
-<h5> <strong> <center> Dalili na Maambukizi </center> </strong> </h5>
+   
 <!-- Side bar starts here
 -->  
 <div class="d-flex" id="wrapper">
   <div class="border-end bg-white" id="sidebar-wrapper">
-     <strong><div class="sidebar-heading border-bottom bg-light">Menu</div> </strong>
+     <strong><center><div class="sidebar-heading border-bottom bg-light">Menu</div></center></strong>
       <div class="list-group list-group-flush">
           <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="#!">Magonjwa ya Ngono</a>
           <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-secondary text-white" href="#!">Elimu Rika</a>
@@ -24,8 +16,13 @@
           
       </div>
   </div>
+
   <!--Side bar ends here
   -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+  <h5> <strong> <center> Dalili na Maambukizi </center> </strong> </h5> 
+  <p>
 
           <table class="table" id="printable">
               <thead>
@@ -39,11 +36,6 @@
                   <th scope="col">Jinsia</th>
                   <th scope="col">Umri</th>
                   <th scope="col">Namba ya mgonjwa</th>
-                  <th scope="col">Dalili ya kwanza</th>
-                  <th scope="col">Dalili ya pili</th>
-                  <th scope="col">Dalili ya tatu</th>
-                  <th scope="col">Dalili ya nne</th>
-                  <th scope="col">Dalili ya tano</th>
                   <th scope="col">Hospitali</th>
                   <th scope="col">Maambukizi</th>
                   <th scope="col"></th> 
@@ -52,6 +44,7 @@
               </thead>
               <tbody>
                 {% for task in tasks %}
+                
                 <tr>
                   <td> {{ task.jina_la_mtumiaji }} </td>
                   <td> {{ task.tarehe }} </td>
@@ -62,25 +55,23 @@
                   <td> {{ task.jinsia }} </td>
                   <td> {{ task.umri }} </td>
                   <td> {{ task.Namba_ya_mgonjwa }} </td>
-                  <td> {{ task.DALILI1 }} </td>
-                  <td> {{ task.DALILI2 }} </td>
-                  <td> {{ task.DALILI3 }} </td>
-                  <td> {{ task.DALILI4 }} </td>
-                  <td> {{ task.DALILI5 }} </td>
                   <td> {{ task.hospitali }} </td>
                   <td> {{ task.MAAMBUKIZI }} </td>
                   <td> <a href = "{% url 'task-update' task.id %}" class="btn btn-success">Hariri</a></td>
                   <td> <a href = "{% url 'task-delete' task.id %}" class="btn btn-danger">Futa</a></td>
                 </tr>
-              </tbody>
-                {% empty %}
-  <p>Hakuna dalili zilizoingizwa!!!</p> 
+               
+ 
+                    
   {% endfor %}
             </table>
+  </p>
       </div>  
   </div>
 </div>
                   <br> <hr>
 <h4><center><div class="badge bg-info text-light text-wrap" style="width: 60rem;"> Endapo ubashiri utakuwa "Kuna maambukizi" nakili namba ya mgonjwa na uende maabara kwa vipimo zaidi. <br> Asante kwa kutumia mfumo wetu na karibu tena!!!</div></center></h4>
-<br>
+</div>
+</div>
+</div>
 {% endblock %}

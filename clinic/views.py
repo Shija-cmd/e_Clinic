@@ -48,7 +48,7 @@ class TaskList(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tasks'] = context['tasks'].filter(jina_la_mtumiaji=self.request.user)
-        context['count'] = context['tasks'].filter(complete=False).count()
+        context['count'] = context['tasks'].filter(jina_la_mtumiaji=True).count()
         return context
     
 class TaskDetail(LoginRequiredMixin, DetailView):
@@ -73,34 +73,12 @@ class DeleteView(LoginRequiredMixin, DeleteView):
     
     
 # functions for downloading files
-# for pdf files
-def download_pdf(request):
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="data.pdf"'
-
-    buffer = BytesIO()
-    p = canvas.Canvas(buffer, pagesize=letter)
-    p.drawString(100, 750, "GPA STATUS DATA")
-
-    data_entries = Patient.objects.all().order_by('NAME')
-    y = 700
-    for entry in data_entries:
-        p.drawString(100, y, f"Name: {entry.NAME}, UGPA: {entry.UGPA}, Research Concept Note: {entry.RCN}, English Test: {entry.TOEFL}, Letter of Recommendation: {entry.LOR}, ACSEE: {entry.HIGH_SCHOOL_POINTS}, Eligibility: {entry.STATUS}")
-        y -= 20
-
-    p.showPage()
-    p.save()
-
-    buffer.seek(0)
-    response.write(buffer.read())
-    return response 
-   
- # Downloads for excel files
+# Downloads for excel files
 def download_excel(request):
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     response['Content-Disposition'] = 'attachment; filename=Patient.xlsx'
 
-    data_entries = Patient.objects.all().values('tarehe', 'jina_la_kwanza', 'jina_la_pili', 'simu', 'anwani', 'jinsia', 'umri', 'Namba_ya_mgonjwa', 'DALILI1', 'DALILI2', 'DALILI3', 'DALILI4', 'DALILI5', 'hospitali', 'MAAMBUKIZI')
+    data_entries = Patient.objects.all().values('tarehe', 'jina_la_kwanza', 'jina_la_pili', 'simu', 'anwani', 'jinsia', 'umri', 'Namba_ya_mgonjwa', 'hospitali', 'MAAMBUKIZI')
     df = pd.DataFrame(data_entries)
 
     with pd.ExcelWriter(response, engine='openpyxl') as writer:

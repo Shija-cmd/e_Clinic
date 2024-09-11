@@ -65,9 +65,8 @@ class Patient(models.Model):
     DALILI5 = models.PositiveIntegerField(choices=SYMP_5)
     hospitali = models.CharField(choices=hosp, default = 'Tengeru')
     MAAMBUKIZI = models.CharField(max_length=100, blank=True, editable = False)
-    complete = models.BooleanField(default=False, editable = False)
     created = models.DateTimeField(auto_now_add=True)
-    
+
     #Function to load the model
     def save(self, *args, **kwargs):
         ml_model = joblib.load('ml_model/model.joblib')
@@ -76,6 +75,6 @@ class Patient(models.Model):
     
     def __str__(self):
         return self.jina_la_kwanza
-                
+              
 class Meta:
-    ordering = ['complete'] 
+    ordering = ['jina_la_mtumiaji'] 
